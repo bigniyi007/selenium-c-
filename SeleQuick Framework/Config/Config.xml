@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xml>
+  <AppSetting>
+    <Browser>Chrome</Browser>
+    <FolderLocation>C:\Users\tbell\OneDrive\Desktop</FolderLocation>
+    <Url>http://executeautomation.com\demosite\Login.html</Url>
+    <AdminUsername>Test11</AdminUsername>
+    <AdminPassword>Test22</AdminPassword> 
+    <EnableReport>Yes</EnableReport>
+    <EnableLog>Yes</EnableLog>
+    <DataBaseConnectionString></DataBaseConnectionString>
+  </AppSetting>
+</xml>
