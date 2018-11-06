@@ -9,9 +9,8 @@ Scenario: Login with Correct Details
 	And I have entered password into the website
 	When I click the login button
 	Then i should see the welcome page
-	Then i should not see the welcome page
-
 	
+
 Scenario: Login with Wrong Details
 	Given I have entered username into the Website  
 	And I have entered password into the website

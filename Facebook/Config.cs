@@ -14,7 +14,7 @@ namespace Facebook
 
         private static IWebDriver _driver;
 
-        public static IWebDriver driver
+        public static IWebDriver Driver
         {
 
             get
@@ -38,7 +38,7 @@ namespace Facebook
             InitializeSettings();
             NaviateSite();
 
-            driver = DriverContext.Driver;
+            Driver = DriverContext.Driver;
 
             //Login(Settings.AdminUsername, Settings.AdminPassword);
 
@@ -51,7 +51,7 @@ namespace Facebook
         public void TearDown()
         {
             // close browser. 
-            driver.Close();
+            Driver.Close();
 
            
         }

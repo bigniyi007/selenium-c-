@@ -11,7 +11,7 @@ namespace Facebook
     [TestFixture]
     public class CommonSteps
     {
-        public static IWebDriver driver = Config.driver;
+        public static IWebDriver driver = Config.Driver;
 
 
 

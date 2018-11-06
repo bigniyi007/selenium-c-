@@ -73,7 +73,7 @@ namespace Facebook.Steps
         {
 
             
-            ScenarioContext.Current.Pending();
+            //ScenarioContext.Current.Pending();
 
             System.Threading.Thread.Sleep(5000);
         }

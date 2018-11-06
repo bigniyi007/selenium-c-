@@ -4,11 +4,13 @@ using SeleQuick_Framework.Config;
 using SeleQuick_Framework.Helper;
 using System.Reflection;
 
+
+
 namespace Facebook.TestCases
 {
 
     [TestFixture]
-   public class LoginPageTestCases : CommonSteps
+   public sealed class LoginPageTestCases : CommonSteps
     {
 
        
