@@ -36,6 +36,8 @@ namespace Facebook
         }
         // I ADDED THIS HERE. 
         string currentScenarioTitle = ScenarioContext.Current.ScenarioInfo.Title.ToString();
+         string  featurename = FeatureContext.Current.FeatureInfo.Title.ToString();
+        string scenarioname = ScenarioContext.Current.ScenarioInfo.Title.ToString();
         
  
         [BeforeTestRun]
@@ -50,15 +52,16 @@ namespace Facebook
         {
             // flush the report here.
             HtmlReports.FlushCloseHtmlReport();
-            Console.WriteLine();
+            //Console.WriteLine();
         }
 
         [BeforeScenario]
         public void BeforeScenario()
         {
-             HtmlReports.StartHtmlReports(currentScenarioTitle);
-
-            //Console.WriteLine("Executing::" + TestContext.CurrentContext.Test.Name);
+            
+           // Log.Write("Executing Scenario " + scenarioname);
+            HtmlReports.StartHtmlReports(scenarioname,null,featurename + " Feature");
+            Console.WriteLine("Executing::" + TestContext.CurrentContext.Test.Name);
 
 
             //Log.Write("");
@@ -76,16 +79,21 @@ namespace Facebook
 
         {
             // process report here 
-            HtmlReports.ProcesHtmlReports(TestContext.CurrentContext.Result.Outcome.Status, FolderBuilder.ScreenShotSubFolder + "\\Passed " +
-           TestContext.CurrentContext.Test.Name + " screenshot " + ".png");
+            //HtmlReports.ProcesHtmlReports(TestContext.CurrentContext.Result.Outcome.Status, FolderBuilder.FailedSubFolder + "\\Failed " +
+            //TestContext.CurrentContext.Test.Name + " screenshot " + ".png");
+            Console.WriteLine();
 
             if (ScenarioContext.Current.TestError != null)
             {
+                HtmlReports.ProcesSpecFlowReports("fail",currentScenarioTitle , currentScenarioTitle);
                 ScreenShotTaker();
+            }
+            else{
+                HtmlReports.ProcesSpecFlowReports(null, null, currentScenarioTitle);
             }
                         //TODO: implement logic that has to run after executing each scenario
         }
-        void ScreenShotTaker()
+         void ScreenShotTaker()
         {
               var capturedimage = ((ITakesScreenshot)driver).GetScreenshot();
 

@@ -62,7 +62,7 @@ namespace Facebook.Steps
         {
             bool iswelcomepagedisplayed = Wp.FirstNameTextBox.Displayed;
 
-
+        // Code to log out here. 
 
             System.Threading.Thread.Sleep(5000);
 

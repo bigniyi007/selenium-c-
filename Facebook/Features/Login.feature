@@ -3,6 +3,9 @@
 	As a math idiot
 	I want to be told the sum of two numbers
 
+
+Background: Reset Browser
+
 @mytag
 Scenario: Login with Correct Details
 	Given I have entered username into the Website  

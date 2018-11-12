@@ -43,7 +43,39 @@ namespace SeleQuick_Framework.Helper
             _test = _extent.StartTest(Name, desc).AssignCategory(catergory);
         }
     }
+        public static void ProcesSpecFlowReports(string status, string failedtestcase, string scenarioname)
+        {
+            LogStatus logstatus;
 
+            if (Settings.EnableReport == "Yes")
+            {
+
+                if(status == null)
+                {
+                    logstatus = LogStatus.Pass;
+                }
+                else
+                {
+                    logstatus = LogStatus.Fail;
+                }
+         
+
+                if (logstatus == LogStatus.Fail)
+                {
+                    var failedimage = _test.AddScreenCapture(failedtestcase);
+                    _test.Log(logstatus, scenarioname, failedimage);
+                }
+                else
+                {
+                    scenarioname = null;
+                    _test.Log(logstatus, scenarioname + logstatus);
+
+                }
+
+                _extent.EndTest(_test);
+
+            }
+        }
 
     // This methods applies the passed and failed testcases to the report
     // HtmlReports.ProcessHtmlReports();
